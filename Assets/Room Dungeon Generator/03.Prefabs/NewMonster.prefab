@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 488370}
   - component: {fileID: -516626585574015832}
   - component: {fileID: -2405696523371727224}
+  - component: {fileID: -2195649432547858790}
   - component: {fileID: 5712169813724623302}
+  - component: {fileID: -2714005148081112964}
   m_Layer: 0
   m_Name: NewMonster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +86,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-2195649432547858790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e70cd5f81193549ae6cd0249a19e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instance: {fileID: -2195649432547858790}
+  HP: 0
+  MaxHP: 3
 --- !u!114 &5712169813724623302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +129,29 @@ MonoBehaviour:
   attackRange: 3
   playerInSightRange: 0
   playerInAttackRange: 0
+--- !u!136 &-2714005148081112964
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154156}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &168732
 GameObject:
   m_ObjectHideFlags: 0
