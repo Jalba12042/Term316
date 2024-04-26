@@ -8,6 +8,8 @@ public class EnemyNavMesh : MonoBehaviour
 {
     public NavMeshAgent Agent;
     public GameObject player;
+    public Animator ani;
+
    
     public LayerMask whatIsGround, whatIsPlayer;
     //public AudioClip PlayerAttacked;
@@ -69,6 +71,7 @@ public class EnemyNavMesh : MonoBehaviour
 
     private void Patroling()
     {
+        ani.SetTrigger("Walk");
         if (!walkPointSet) 
         {
             SearchWalkPoint();
@@ -105,6 +108,7 @@ public class EnemyNavMesh : MonoBehaviour
     private void ChasePlayer()
     {
         Agent.SetDestination(player.transform.position);
+        ani.SetTrigger("Run");
     }
 
     private void AttackPlayer()

@@ -58,5 +58,5 @@ MonoBehaviour:
     floor: {fileID: 0}
     wall: {fileID: 0}
   PlayerPrefab: {fileID: 6933548392221976742, guid: 099b0ad39010f24448fa083ec7a24fa1, type: 3}
-  MonsterPrefab: {fileID: 154156, guid: 5fd2335cdb40738408bdbd4e91b26119, type: 3}
+  MonsterPrefab: {fileID: 1696834749189059949, guid: 4a46e821c58b5cd42b14eaab6d197266, type: 3}
   MonsterCount: 1
