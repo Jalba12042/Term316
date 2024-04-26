@@ -153,7 +153,21 @@ namespace ooparts.dungen
 		public IEnumerator CreateMonsters()
 		{
 				GameObject monster = Instantiate((MonsterPrefab));
-				Random rnd = new Random();
+			
+				EnemyHP enemyHP = monster.GetComponent<EnemyHP>();
+
+            if (enemyHP != null)
+            {
+				enemyHP.maxHealth = 3;
+            }
+            else
+            {
+                Debug.LogError("EnemyHP component not found on the monster prefab!");
+                // Destroy the monster if it doesn't have the necessary component
+                DestroyImmediate(monster);
+            }
+
+            Random rnd = new Random();
 				int monsterGen = rnd.Next(1, 10);
 				if(monsterGen < 6) {
 				monster.name = "Monster";

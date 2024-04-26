@@ -1,44 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
 {
-   //public EnemyHP instance;
+    public float maxHealth = 100.0f;
+    public GameObject speedItem;
+    public GameObject damageItem;
+    public float dropChance = 0.5f;
+    public float dropChanceDamage = 1.5f;
 
-    [SerializeField] int HP=0;
-    [SerializeField] int MaxHP = 3;
+    public float currentHealth;
+    public float minDropChanceAttack = 1.0f;
+    public float maxDropChanceAttack = 1.99f;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        HP = MaxHP;
+        currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(float damage)
     {
-        
-    }
+        currentHealth -= damage;
 
-    public void TakeDamage(int damage)
-    {
-        HP -= damage;
-        Debug.Log("takes 1 dmg");
-
-        if (HP <= 0)
+        if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
     }
 
-    void Death() 
+    private void Die()
     {
-        if (HP <= 0)
+        float randomValueDamage = Random.Range(minDropChanceAttack, maxDropChanceAttack);
+        float randomValue = Random.value;
+
+        if (currentHealth <= 0 && randomValue <= dropChance)
         {
-            Destroy(gameObject);
+            Instantiate(speedItem, transform.position, Quaternion.identity);
         }
+
+        else if (currentHealth <= 0 && randomValueDamage <= dropChanceDamage)
+        {
+            Instantiate(damageItem, transform.position, Quaternion.identity);
+        }
+
+        // Debug
+       // Destroy(gameObject);
+        Debug.Log(randomValue);
+        Debug.Log(randomValueDamage);
     }
+
 
 }
