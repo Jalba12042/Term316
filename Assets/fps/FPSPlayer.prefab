@@ -212,9 +212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 6789203576074073387, guid: b2b7c2e47e875d3448ef1af4860bde99, type: 3}
-  firePoint: {fileID: 6576033121069338445}
-  fireRate: 0.5
-  projectileSpeed: 50
+  fireRate: 2
+  projectileSpeed: 70
   projectileLifetime: 3
 --- !u!1 &6933548392234600878
 GameObject:

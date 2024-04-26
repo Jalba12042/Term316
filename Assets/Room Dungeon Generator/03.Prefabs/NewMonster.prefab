@@ -104,7 +104,7 @@ MonoBehaviour:
   damageItem: {fileID: 5664170546877059265, guid: 766f71c0940f8cc45a0d60e37d653bbc, type: 3}
   dropChance: 0.5
   dropChanceDamage: 1.5
-  currentHealth: 0
+  currentHealth: 3
   minDropChanceAttack: 1
   maxDropChanceAttack: 1.99
 --- !u!114 &5712169813724623302

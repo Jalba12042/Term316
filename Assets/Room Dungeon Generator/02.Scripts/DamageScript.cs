@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class DamageScript : MonoBehaviour
 {
-    [SerializeField] EnemyHP eHP;
+   
 
     private void OnCollisionEnter(Collision collision)
     {
-        EnemyHP enemyHP = collision.gameObject.GetComponent<EnemyHP>();
+       
 
         
             
-            if (enemyHP != null && collision.gameObject.tag == "Enemy")
+            if (collision.gameObject.tag == "Enemy")
             {
-                enemyHP.TakeDamage(1f);
+                  EnemyHP enemyHP = collision.gameObject.GetComponent<EnemyHP>();
+            if (enemyHP)
+            {
+                //enemyHP.TakeDamage(1f);
                 Debug.Log("Does 1 dmg");
+            }
+                    
             }
 
             //eHP.TakeDamage(1f);
@@ -23,13 +28,5 @@ public class DamageScript : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            //EnemyHP.instance.TakeDamage(1);
-            eHP.TakeDamage(1f);
-            Debug.Log("Does 1 dmg");
-        }
-    }
+   
 }

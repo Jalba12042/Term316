@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
 {
-    public float maxHealth = 100.0f;
+    public float maxHealth = 3f;
     public GameObject speedItem;
     public GameObject damageItem;
     public float dropChance = 0.5f;
@@ -27,6 +27,16 @@ public class EnemyHP : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            this.TakeDamage(1f);
+            Debug.Log("Takes 1 dmg");
+            Destroy(collision.gameObject);
+        }
+    }
+
     private void Die()
     {
         float randomValueDamage = Random.Range(minDropChanceAttack, maxDropChanceAttack);
@@ -43,7 +53,7 @@ public class EnemyHP : MonoBehaviour
         }
 
         // Debug
-       // Destroy(gameObject);
+        Destroy(gameObject);
         Debug.Log(randomValue);
         Debug.Log(randomValueDamage);
     }

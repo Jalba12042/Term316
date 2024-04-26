@@ -154,18 +154,18 @@ namespace ooparts.dungen
 		{
 				GameObject monster = Instantiate((MonsterPrefab));
 			
-				EnemyHP enemyHP = monster.GetComponent<EnemyHP>();
+				//EnemyHP enemyHP = monster.GetComponent<EnemyHP>();
 
-            if (enemyHP != null)
-            {
-				enemyHP.maxHealth = 3;
-            }
-            else
-            {
-                Debug.LogError("EnemyHP component not found on the monster prefab!");
-                // Destroy the monster if it doesn't have the necessary component
-                DestroyImmediate(monster);
-            }
+    //        if (enemyHP != null)
+    //        {
+				//enemyHP.maxHealth = 3;
+    //        }
+    //        else
+    //        {
+    //            Debug.LogError("EnemyHP component not found on the monster prefab!");
+    //            // Destroy the monster if it doesn't have the necessary component
+    //            DestroyImmediate(monster);
+    //        }
 
             Random rnd = new Random();
 				int monsterGen = rnd.Next(1, 10);
