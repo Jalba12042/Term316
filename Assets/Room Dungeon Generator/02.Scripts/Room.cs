@@ -21,6 +21,8 @@ namespace ooparts.dungen
 		private Tile[,] _tiles;
 		public GameObject WallPrefab;
 		public RoomSetting Setting;
+		public Material FloorMaterial;
+		public Material WallMaterial;
 
 		public Dictionary<Room, Corridor> RoomCorridor = new Dictionary<Room, Corridor>();
 
@@ -32,7 +34,20 @@ namespace ooparts.dungen
 		public int MonsterCount;
 		private GameObject[] Monsters;
 
-		public void Init(Map map)
+        private void Start()
+        {
+            // Ensure Setting is assigned
+            if (Setting == null)
+            {
+                Setting = new RoomSetting();
+                // Assign materials or other properties as needed
+                Setting.floor = FloorMaterial; 
+                Setting.wall = WallMaterial;
+            }
+        }
+
+
+        public void Init(Map map)
 		{
 			_map = map;
 		}

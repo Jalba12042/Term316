@@ -5,9 +5,10 @@ using UnityEngine;
 public class ProjectileShooter : MonoBehaviour
 {
     public GameObject projectilePrefab;
-    public float fireRate = 1f; // Fire rate in shots per second
-    public float projectileSpeed = 10f; // Speed of the projectile
-    public float projectileLifetime = 3f; // Lifetime of the projectile in seconds
+    public float fireRate = 1f; 
+    public float projectileSpeed = 10f; 
+    public float projectileLifetime = 3f;
+    public Animator ani;
 
     private Camera mainCamera;
     private float nextFireTime;
@@ -23,6 +24,7 @@ public class ProjectileShooter : MonoBehaviour
         {
             nextFireTime = Time.time + 1f / fireRate;
             FireProjectile();
+            ani.SetTrigger("Attack");
         }
     }
 
