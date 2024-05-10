@@ -5,8 +5,10 @@ using UnityEngine;
 public class ProjectileShooter : MonoBehaviour
 {
     public GameObject projectilePrefab;
+    public GameObject projectilePrefab2;
     public float fireRate = 1f; 
-    public float projectileSpeed = 10f; 
+    public float projectileSpeed = 10f;
+    public float projectileSpeed2 = 10f;
     public float projectileLifetime = 3f;
     public Animator ani;
 
@@ -26,6 +28,13 @@ public class ProjectileShooter : MonoBehaviour
             FireProjectile();
             ani.SetTrigger("Attack");
         }
+
+        if (Input.GetButtonDown("Fire2") && Time.time >= nextFireTime)
+        {
+            nextFireTime = Time.time + 1f / fireRate;
+            FireProjectile2();
+            ani.SetTrigger("Attack");
+        }
     }
 
     void FireProjectile()
@@ -39,6 +48,23 @@ public class ProjectileShooter : MonoBehaviour
         if (projectileRigidbody != null)
         {
             projectileRigidbody.velocity = mainCamera.transform.forward * projectileSpeed;
+        }
+
+        // Destroy the projectile after the specified lifetime
+        Destroy(projectile, projectileLifetime);
+    }
+
+    void FireProjectile2()
+    {
+        // Create a projectile at the center of the camera view
+        Vector3 spawnPosition = mainCamera.transform.position + mainCamera.transform.forward;
+        GameObject projectile = Instantiate(projectilePrefab2, spawnPosition, Quaternion.identity);
+
+        // Get the rigidbody of the projectile and set its velocity to move it forward
+        Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
+        if (projectileRigidbody != null)
+        {
+            projectileRigidbody.velocity = mainCamera.transform.forward * projectileSpeed2;
         }
 
         // Destroy the projectile after the specified lifetime

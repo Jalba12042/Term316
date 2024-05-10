@@ -52,6 +52,8 @@ public class EnemyHP : MonoBehaviour
             Instantiate(damageItem, transform.position, Quaternion.identity);
         }
 
+        GameManager.instance.PointsToWin++;
+
         // Debug
         Destroy(gameObject);
         Debug.Log(randomValue);

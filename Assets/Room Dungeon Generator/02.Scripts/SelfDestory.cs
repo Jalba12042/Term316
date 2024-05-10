@@ -11,4 +11,13 @@ public class SelfDestroyOnCollision : MonoBehaviour
         // Destroy this game object
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == gameObject) 
+            return;
+
+        // Destroy this game object
+        Destroy(gameObject);
+    }
 }
